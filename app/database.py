@@ -15,6 +15,7 @@ from sqlalchemy.ext.asyncio import (
 
 from app.config import settings
 from app.models import Base
+from app.repositories.seed import seed_initial_data
 
 
 def _ensure_database_parent(database_url: str) -> None:
@@ -71,6 +72,8 @@ async def create_database_tables(database_engine: AsyncEngine) -> None:
 async def init_database() -> None:
     """Create the SQLite file and any missing ORM-defined tables."""
     await create_database_tables(engine)
+    async with async_session_factory() as session:
+        await seed_initial_data(session)
 
 
 async def dispose_database() -> None:

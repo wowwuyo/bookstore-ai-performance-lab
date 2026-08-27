@@ -1,0 +1,12 @@
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.34,<1.0
+sqlalchemy>=2.0,<3.0
+aiosqlite>=0.21,<1.0
+structlog>=25.1,<26.0
+prometheus-client>=0.21,<1.0
+opentelemetry-api>=1.31,<2.0
+opentelemetry-sdk>=1.31,<2.0
+opentelemetry-instrumentation-fastapi>=0.52b1,<1.0
+pytest>=8.3,<9.0
+httpx>=0.28,<1.0
+ruff>=0.11,<1.0

@@ -88,7 +88,9 @@ def configure_tracing(app: FastAPI) -> None:
     if not _tracing_configured:
         trace.set_tracer_provider(
             TracerProvider(
-                resource=Resource.create({"service.name": "bookstore-ai-performance-lab"})
+                resource=Resource.create(
+                    {"service.name": "bookstore-ai-performance-lab"}
+                )
             )
         )
         _tracing_configured = True

@@ -1,5 +1,7 @@
 """Application configuration."""
 
+from __future__ import annotations
+
 import os
 from dataclasses import dataclass
 
@@ -27,7 +29,9 @@ class Settings:
             message = f"{DATABASE_URL_ENVIRONMENT_VARIABLE} must use the 'sqlite+aiosqlite' driver"
             raise ValueError(message)
         if not parsed_url.database:
-            message = f"{DATABASE_URL_ENVIRONMENT_VARIABLE} must reference a SQLite database"
+            message = (
+                f"{DATABASE_URL_ENVIRONMENT_VARIABLE} must reference a SQLite database"
+            )
             raise ValueError(message)
         return cls(database_url=database_url)
 
